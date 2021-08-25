@@ -43,7 +43,6 @@ public class EnemyBehaviorPatrol : IEnemyBehavior
     {
         if ((_navMeshAgent.pathEndPosition - _navMeshAgent.transform.position).magnitude == 0)
         {
-            Debug.Log("fuck");
             Move();
         }
     }
@@ -51,7 +50,6 @@ public class EnemyBehaviorPatrol : IEnemyBehavior
     private void Move()
     {
         _currentLocationPoint = _locationPoints[Random.Range(0, _locationPoints.Count)].position;
-        Debug.Log("ffuck");
         _navMeshAgent.SetDestination(_currentLocationPoint);
         _enemyAnimator.SetFloat("Speed", 1f);
     }
