@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         _currentBehavior.Enter();
     }
 
-    private void SetBehaviorByDefault()
+    public void SetBehaviorByDefault()
     {
         SetBehaviorPatrol();
     }

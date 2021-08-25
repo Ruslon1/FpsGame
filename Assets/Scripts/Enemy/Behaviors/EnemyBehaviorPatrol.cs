@@ -43,7 +43,6 @@ public class EnemyBehaviorPatrol : IEnemyBehavior
     {
         if ((_navMeshAgent.pathEndPosition - _navMeshAgent.transform.position).magnitude == 0)
         {
-            //  _enemyAnimator.transform.Rotate(new Vector3(0,180,0));
             Debug.Log("fuck");
             Move();
         }

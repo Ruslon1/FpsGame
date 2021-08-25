@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyBehaviorShoot : IEnemyBehavior
@@ -33,6 +34,18 @@ public class EnemyBehaviorShoot : IEnemyBehavior
     {
         _agent.isStopped = true;
         _enemy.transform.LookAt(_player.transform);
-        Debug.Log("Update EnemyBehaviorShoot");                 
+        Debug.Log("Update EnemyBehaviorShoot");
+        TryStrike();
+    }
+
+    private void TryStrike()
+    {
+        if (_player.Health <= 0)
+            return;
+        var chance = Random.Range(0, 100);
+        if (chance <= 50)
+        {
+            _player.TakeDamage(Random.Range(20, 80));
+        }
     }
 }
