@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 
         _behaviorsMap[typeof(EnemyBehaviorFight)] = new EnemyBehaviorFight();
         _behaviorsMap[typeof(EnemyBehaviorShoot)] = new EnemyBehaviorShoot(_enemyFields.EnemyAnimator,
-            _enemyFields.Player, _enemyFields.Enemy, _enemyFields.Agent);
+            _enemyFields.Player, _enemyFields.Enemy, _enemyFields.Agent, _enemyFields.Checker);
         _behaviorsMap[typeof(EnemyBehaviorPatrol)] = new EnemyBehaviorPatrol(_enemyFields.EnemyAnimator,
             _enemyFields.Agent, _enemyFields.LocationPoints);
     }
