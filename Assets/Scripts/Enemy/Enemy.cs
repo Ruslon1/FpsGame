@@ -8,8 +8,9 @@ public class Enemy : MonoBehaviour
 {
     private Dictionary<Type, IEnemyBehavior> _behaviorsMap;
     private IEnemyBehavior _currentBehavior;
+    [SerializeField] private EnemyFields _enemyFields;
 
-    private void Start()
+    private void Awake()
     {
         InitBehaviors();
         SetBehaviorByDefault();
@@ -25,8 +26,10 @@ public class Enemy : MonoBehaviour
         _behaviorsMap = new Dictionary<Type, IEnemyBehavior>();
 
         _behaviorsMap[typeof(EnemyBehaviorFight)] = new EnemyBehaviorFight();
-        _behaviorsMap[typeof(EnemyBehaviorShoot)] = new EnemyBehaviorShoot();
-        _behaviorsMap[typeof(EnemyBehaviorPatrol)] = new EnemyBehaviorPatrol();
+        _behaviorsMap[typeof(EnemyBehaviorShoot)] = new EnemyBehaviorShoot(_enemyFields.EnemyAnimator,
+            _enemyFields.Player, _enemyFields.Enemy, _enemyFields.Agent);
+        _behaviorsMap[typeof(EnemyBehaviorPatrol)] = new EnemyBehaviorPatrol(_enemyFields.EnemyAnimator,
+            _enemyFields.Agent, _enemyFields.LocationPoints);
     }
 
     private void SetBehavior(IEnemyBehavior behavior)

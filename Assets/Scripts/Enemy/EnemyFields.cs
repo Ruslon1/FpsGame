@@ -8,11 +8,12 @@ public class EnemyFields : MonoBehaviour
     [SerializeField] private Animator _enemyAnimator;
     [SerializeField] private List<Transform> _locationPoints;
     [SerializeField] private NavMeshAgent _agent;
-
-    private void Awake()
-    {
-        new EnemyBehaviorPatrol().SetFields(_enemyAnimator, _agent, _locationPoints);
-        new EnemyBehaviorFight().SetFields(_enemyAnimator);
-        new EnemyBehaviorShoot().SetFields(_enemyAnimator);
-    }
+    [SerializeField] private Player _player;
+    [SerializeField] private Enemy _enemy;
+    
+    public Animator EnemyAnimator => _enemyAnimator;
+    public List<Transform> LocationPoints => _locationPoints;
+    public NavMeshAgent Agent => _agent;
+    public Player Player => _player;
+    public Enemy Enemy=>_enemy;
 }
